@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class CounterListComponent implements OnInit {
 
   constructor() { }
-    overallCounter: number;
+  counters: number[];
+
   ngOnInit() {
-    this.overallCounter = 5
+    this.counters = [];
   }
 
 }
