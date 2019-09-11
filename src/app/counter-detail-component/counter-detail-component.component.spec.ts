@@ -27,6 +27,12 @@ describe('CounterDetailComponentComponent', () => {
     expect(component.value).toEqual(0);
   });
 
-  
+  it('should increment on click UP',() => {
+    component.increment();
+    expect(component.value).toEqual(1);
+
+    component.increment();
+    expect(component.value).toEqual(2);
+  })
 
 });
