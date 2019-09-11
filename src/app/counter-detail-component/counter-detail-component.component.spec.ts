@@ -66,6 +66,21 @@ describe('CounterDetailComponentComponent', () => {
       let value = element.querySelector('.counter-count').innerHTML;
       expect(value).toEqual('1');
     })
+
+    it('should not go below zero on the click of the down button', () => {
+      element.querySelectorAll('button')[0].click();
+      fixture.detectChanges();
+      let value = element.querySelector('.counter-count').innerHTML;
+      expect(value).toEqual('0');
+    })
+
+    it('should decrement on the click of the down button', () => {
+      component.value = 7;
+      element.querySelectorAll('button')[0].click();
+      fixture.detectChanges();
+      let value = element.querySelector('.counter-count').innerHTML;
+      expect(value).toEqual('6');
+    })
   })
 
 
