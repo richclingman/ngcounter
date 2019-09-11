@@ -46,4 +46,22 @@ describe('CounterDetailComponentComponent', () => {
     expect(component.value).toEqual(4);
   })
 
+
+  describe('UI Component', () => {
+    let element: HTMLElement;
+
+    beforeEach(() => {
+      fixture.detectChanges();
+      element = fixture.elementRef.nativeElement;
+     });
+  
+    it('should initialize at zero count', () => {
+      let value = element.querySelector('.counter-count').innerHTML;
+      expect(value).toEqual('0');
+    });
+
+
+  })
+
+
 });
