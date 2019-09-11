@@ -46,13 +46,13 @@ describe('CounterDetailComponentComponent', () => {
     expect(component.value).toEqual(4);
   })
 
-
   describe('UI Component', () => {
     let element: HTMLElement;
 
     beforeEach(() => {
       fixture.detectChanges();
       element = fixture.elementRef.nativeElement;
+      let button = fixture.debugElement.nativeElement.querySelector('button');
      });
   
     it('should initialize at zero count', () => {
@@ -60,7 +60,12 @@ describe('CounterDetailComponentComponent', () => {
       expect(value).toEqual('0');
     });
 
-
+    it('should increment on the click of the up button', () => {
+      element.querySelectorAll('button')[1].click();
+      fixture.detectChanges();
+      let value = element.querySelector('.counter-count').innerHTML;
+      expect(value).toEqual('1');
+    })
   })
 
 
