@@ -17,4 +17,11 @@ export class CounterDetailComponentComponent implements OnInit {
   increment() {
     this.value++;
   }
+
+  decrement() {
+    this.value--;
+    if (this.value < 0) {
+      this.value = 0;
+    }
+  }
 }

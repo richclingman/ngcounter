@@ -33,6 +33,17 @@ describe('CounterDetailComponentComponent', () => {
 
     component.increment();
     expect(component.value).toEqual(2);
+  });
+
+  it('should NOT decrement below zero on click DOWN', () => {
+    component.decrement();
+    expect(component.value).toEqual(0);
+  })
+
+  it('should decrement on click DOWN', () => {
+    component.value = 5;
+    component.decrement();
+    expect(component.value).toEqual(4);
   })
 
 });
