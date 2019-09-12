@@ -24,7 +24,12 @@ export class CounterDetailComponentComponent implements OnInit {
   }
 
   increment() {
-    this.counter.value++;
+    if (this.counter.superLevel === 0) {
+      this.counter.value++;
+    }
+    else {
+      this.counter.value += 3;
+    }
   }
 
   decrement() {

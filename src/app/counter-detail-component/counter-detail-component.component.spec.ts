@@ -46,6 +46,16 @@ describe('CounterDetailComponentComponent', () => {
     expect(component.counter.value).toEqual(4);
   })
 
+  describe('Super-Level',() => {
+    it('should increment by 3', () => {
+      component.counter.value = 22;
+      component.counter.superLevel = 1;
+      component.increment();
+      expect(component.counter.value).toEqual(25)
+    })
+
+  })
+
   describe('UI Component', () => {
     let element: HTMLElement;
 
