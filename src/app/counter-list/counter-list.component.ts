@@ -20,10 +20,10 @@ export class CounterListComponent implements OnInit {
     const counter =
     {
       value: 0,
-      isSuper: false,
+      isSuper: 0,
     }
     if (this.counters.filter(counter => !counter.isSuper).length === 5) {
-      counter.isSuper = true;
+      counter.isSuper = 1;
       const totalCounter = this.counters
         .filter(counter => !counter.isSuper)
         .reduce((sumCounter, counter) => {

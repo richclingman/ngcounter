@@ -49,15 +49,15 @@ describe('CounterListComponent', () => {
     component.createCounter();
 
     expect(component.counters.length).toEqual(1);
-    expect(component.counters[0].isSuper).toEqual(true);  
+    expect(component.counters[0].isSuper).toEqual(1);  
   })
 
   it('should sum counters into super', () => {
-    component.counters.push({value:1, isSuper: false});
-    component.counters.push({value:2, isSuper: false});
-    component.counters.push({value:3, isSuper: false});
-    component.counters.push({value:4, isSuper: false});
-    component.counters.push({value:5, isSuper: false});
+    component.counters.push({value:1, isSuper: 0});
+    component.counters.push({value:2, isSuper: 0});
+    component.counters.push({value:3, isSuper: 0});
+    component.counters.push({value:4, isSuper: 0});
+    component.counters.push({value:5, isSuper: 0});
     component.createCounter();
 
     expect(component.counters.length).toEqual(1);
@@ -65,13 +65,13 @@ describe('CounterListComponent', () => {
   })
 
   it('should sum non-supers into super', () => {
-    component.counters.push({value:1, isSuper: true});
-    component.counters.push({value:3, isSuper: true});
-    component.counters.push({value:2, isSuper: false});
-    component.counters.push({value:4, isSuper: false});
-    component.counters.push({value:5, isSuper: false});
-    component.counters.push({value:5, isSuper: false});
-    component.counters.push({value:5, isSuper: false});
+    component.counters.push({value:1, isSuper: 1});
+    component.counters.push({value:3, isSuper: 1});
+    component.counters.push({value:2, isSuper: 0});
+    component.counters.push({value:4, isSuper: 0});
+    component.counters.push({value:5, isSuper: 0});
+    component.counters.push({value:5, isSuper: 0});
+    component.counters.push({value:5, isSuper: 0});
     component.createCounter();
 
     expect(component.counters.length).toEqual(3);
