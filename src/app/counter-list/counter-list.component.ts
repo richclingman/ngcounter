@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CounterDetailComponentComponent } from '../counter-detail-component/counter-detail-component.component';
 
 @Component({
   selector: 'app-counter-list',
@@ -8,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class CounterListComponent implements OnInit {
 
   constructor() { }
-  counters: number[];
+  counters: any[];
 
   ngOnInit() {
     this.counters = [];
   }
+
+  createCounter() {
+    const counter = new CounterDetailComponentComponent();
+    this.counters.push(counter);
+  }
+
 
 }

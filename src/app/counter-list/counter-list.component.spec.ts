@@ -25,11 +25,22 @@ describe('CounterListComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have counters init as empty array', () => {
+    expect(Array.isArray(component.counters)).toBeTruthy();
+    expect(component.counters.length).toEqual(0);
+  })
+
   it('should show a count of counters', () => {
-    // SEAT
     component.counters = [1,2,3,4,5];
     fixture.detectChanges();
 
     expect(element.querySelector('p').innerText).toEqual('5 Counters')
   })
+
+  it('should have a function to create a new counter', () => {
+    component.createCounter();
+    
+    expect(component.counters.length).toEqual(1);
+  })
+
 });
