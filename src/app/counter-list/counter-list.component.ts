@@ -22,14 +22,16 @@ export class CounterListComponent implements OnInit {
       value: 0,
       isSuper: false,
     }
-    if (this.counters.length === 5) {
+    if (this.counters.filter(counter => !counter.isSuper).length === 5) {
       counter.isSuper = true;
-      const totalCounter = this.counters.reduce((sumCounter,counter) => {
-        return sumCounter + counter.value ;
-      },0)
+      const totalCounter = this.counters
+        .filter(counter => !counter.isSuper)
+        .reduce((sumCounter, counter) => {
+          return sumCounter + counter.value;
+        }, 0)
       counter.value = totalCounter;
 
-      this.counters = this.counters.filter((counter)=>{
+      this.counters = this.counters.filter((counter) => {
         return counter.isSuper;
       })
     }
