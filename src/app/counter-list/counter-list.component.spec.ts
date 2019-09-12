@@ -30,17 +30,36 @@ describe('CounterListComponent', () => {
     expect(component.counters.length).toEqual(0);
   })
 
-  it('should show a count of counters', () => {
-    component.counters = [1,2,3,4,5];
-    fixture.detectChanges();
 
-    expect(element.querySelector('p').innerText).toEqual('5 Counters')
-  })
 
   it('should have a function to create a new counter', () => {
     component.createCounter();
-    
+
     expect(component.counters.length).toEqual(1);
   })
 
+  describe('UI Component',() =>{
+    let element: HTMLElement;
+
+    beforeEach(() => {
+      fixture.detectChanges();
+      element = fixture.elementRef.nativeElement;
+    })
+
+    it('should show a count of counters', () => {
+      component.counters = [1,2,3,4,5];
+      fixture.detectChanges();
+  
+      expect(element.querySelector('p').innerText).toEqual('5 Counters')
+    })
+
+    it('should add a counter when button is clicked',() => {
+      element.querySelectorAll('button')[0].click();
+      fixture.detectChanges();
+      expect(component.counters.length).toEqual(1);
+
+    })
+
+
+  })
 });
