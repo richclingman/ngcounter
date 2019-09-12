@@ -16,9 +16,10 @@ export class CounterListComponent implements OnInit {
   }
 
   createCounter() {
-    const counter = new CounterDetailComponentComponent();
+    const counter =
+    {
+      value: 0
+    }
     this.counters.push(counter);
   }
-
-
 }

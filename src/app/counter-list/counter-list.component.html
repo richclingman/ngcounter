@@ -5,4 +5,8 @@
   <div>
     <button (click)= "createCounter()">Create Counter</button>
   </div>
+  <div *ngFor= "let counter of counters">
+    <app-counter-detail-component 
+    [(counter)]= "counter"></app-counter-detail-component>
+  </div>
 </div>

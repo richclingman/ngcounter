@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-counter-detail-component',
@@ -8,20 +8,27 @@ import { Component, OnInit } from '@angular/core';
 export class CounterDetailComponentComponent implements OnInit {
 
   constructor() { }
-  value: number;
+  @Input()
+  counter: {
+    value: number;
+  }
 
   ngOnInit() {
-    this.value = 0;
+    if (!this.counter) {
+      this.counter = {
+        value: 0
+      }
+    }
   }
 
   increment() {
-    this.value++;
+    this.counter.value++;
   }
 
   decrement() {
-    this.value--;
-    if (this.value < 0) {
-      this.value = 0;
+    this.counter.value--;
+    if (this.counter.value < 0) {
+      this.counter.value = 0;
     }
   }
 }

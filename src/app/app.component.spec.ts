@@ -1,13 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { CounterListComponent } from './counter-list/counter-list.component';
+import { CounterDetailComponentComponent } from './counter-detail-component/counter-detail-component.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        CounterListComponent
+        CounterListComponent,
+        CounterDetailComponentComponent
       ],
     }).compileComponents();
   }));

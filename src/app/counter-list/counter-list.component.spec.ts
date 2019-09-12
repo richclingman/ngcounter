@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CounterListComponent } from './counter-list.component';
+import { AppComponent } from '../app.component';
+import { CounterDetailComponentComponent } from '../counter-detail-component/counter-detail-component.component';
 
 describe('CounterListComponent', () => {
   let component: CounterListComponent;
@@ -9,7 +11,7 @@ describe('CounterListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CounterListComponent ]
+      declarations: [ CounterListComponent, CounterDetailComponentComponent ]
     })
     .compileComponents();
   }));

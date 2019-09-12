@@ -24,26 +24,26 @@ describe('CounterDetailComponentComponent', () => {
   });
 
   it('should initialize at zero', () => {
-    expect(component.value).toEqual(0);
+    expect(component.counter.value).toEqual(0);
   });
 
   it('should increment on click UP',() => {
     component.increment();
-    expect(component.value).toEqual(1);
+    expect(component.counter.value).toEqual(1);
 
     component.increment();
-    expect(component.value).toEqual(2);
+    expect(component.counter.value).toEqual(2);
   });
 
   it('should NOT decrement below zero on click DOWN', () => {
     component.decrement();
-    expect(component.value).toEqual(0);
+    expect(component.counter.value).toEqual(0);
   })
 
   it('should decrement on click DOWN', () => {
-    component.value = 5;
+    component.counter.value = 5;
     component.decrement();
-    expect(component.value).toEqual(4);
+    expect(component.counter.value).toEqual(4);
   })
 
   describe('UI Component', () => {
@@ -75,7 +75,7 @@ describe('CounterDetailComponentComponent', () => {
     })
 
     it('should decrement on the click of the down button', () => {
-      component.value = 7;
+      component.counter.value = 7;
       element.querySelectorAll('button')[0].click();
       fixture.detectChanges();
       let value = element.querySelector('.counter-count').innerHTML;
