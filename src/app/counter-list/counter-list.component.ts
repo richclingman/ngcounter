@@ -6,6 +6,7 @@ import { CounterDetailComponentComponent } from '../counter-detail-component/cou
   templateUrl: './counter-list.component.html',
   styleUrls: ['./counter-list.component.css']
 })
+
 export class CounterListComponent implements OnInit {
 
   constructor() { }
@@ -18,7 +19,15 @@ export class CounterListComponent implements OnInit {
   createCounter() {
     const counter =
     {
-      value: 0
+      value: 0,
+      isSuper: false,
+    }
+    if (this.counters.length === 5) {
+      counter.isSuper = true;
+      const totalCounter = this.counters.reduce((sumCounter,counter) => {
+        return sumCounter + counter.value ;
+      },0)
+      counter.value = totalCounter;
     }
     this.counters.push(counter);
   }

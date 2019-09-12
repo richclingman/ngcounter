@@ -11,12 +11,14 @@ export class CounterDetailComponentComponent implements OnInit {
   @Input()
   counter: {
     value: number;
+    isSuper: boolean;
   }
 
   ngOnInit() {
     if (!this.counter) {
       this.counter = {
-        value: 0
+        value: 0,
+        isSuper: false,
       }
     }
   }
