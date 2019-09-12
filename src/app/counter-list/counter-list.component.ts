@@ -28,6 +28,10 @@ export class CounterListComponent implements OnInit {
         return sumCounter + counter.value ;
       },0)
       counter.value = totalCounter;
+
+      this.counters = this.counters.filter((counter)=>{
+        return counter.isSuper;
+      })
     }
     this.counters.push(counter);
   }
