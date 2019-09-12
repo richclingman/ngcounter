@@ -40,6 +40,44 @@ describe('CounterListComponent', () => {
     expect(component.counters.length).toEqual(1);
   })
 
+  it('should create "super" from 5 non-super', () => {
+    component.createCounter();
+    component.createCounter();
+    component.createCounter();
+    component.createCounter();
+    component.createCounter();
+    component.createCounter();
+
+    expect(component.counters.length).toEqual(1);
+    expect(component.counters[0].isSuper).toEqual(true);  
+  })
+
+  it('should sum counters into super', () => {
+    component.counters.push({value:1, isSuper: false});
+    component.counters.push({value:2, isSuper: false});
+    component.counters.push({value:3, isSuper: false});
+    component.counters.push({value:4, isSuper: false});
+    component.counters.push({value:5, isSuper: false});
+    component.createCounter();
+
+    expect(component.counters.length).toEqual(1);
+    expect(component.counters[0].value).toEqual(15);  
+  })
+
+  it('should sum non-supers into super', () => {
+    component.counters.push({value:1, isSuper: true});
+    component.counters.push({value:3, isSuper: true});
+    component.counters.push({value:2, isSuper: false});
+    component.counters.push({value:4, isSuper: false});
+    component.counters.push({value:5, isSuper: false});
+    component.counters.push({value:5, isSuper: false});
+    component.counters.push({value:5, isSuper: false});
+    component.createCounter();
+
+    expect(component.counters.length).toEqual(3);
+    expect(component.counters[2].value).toEqual(21);  
+  })
+
   describe('UI Component',() =>{
     let element: HTMLElement;
 
